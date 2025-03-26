@@ -1,4 +1,4 @@
-# 42 Piscine - My Progress
+# 42 Piscine - My Journey
 
 Welcome to my **42 Piscine** repository! This repo contains all the projects and exercises I worked on during the Piscine at **42**.
 
