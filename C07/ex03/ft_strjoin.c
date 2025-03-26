@@ -6,64 +6,94 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:58:30 by obouayed          #+#    #+#             */
-/*   Updated: 2023/08/22 18:17:17 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/03/26 19:08:27 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_sep(char *sep, char *str, int k)
+int	ft_strlen(int size, char **strs, char *sep)
 {
+	int	i;
 	int	j;
+	int	taille;
 
 	j = 0;
-	while (sep[j] != '\0')
+	taille = 0;
+	i = -1;
+	if (size <= 0)
+		return (0);
+	while (sep[++i])
 	{
-		str[k] = sep[j];
-		j++;
-		k++;
+		taille++;
+	}
+	taille = taille * (size - 1);
+	i = -1;
+	while (++i < size)
+	{
+		while (strs[i][j])
+		{
+			taille++;
+			j++;
+		}
+		j = 0;
+	}
+	return (taille);
+}
+
+int	ft_separe(char *chaine, char *sep, int k, int taille)
+{
+	int	i;
+
+	i = 0;
+	if (k < taille)
+	{
+		while (sep[i])
+		{
+			chaine[k] = sep[i];
+			k++;
+			i++;
+		}
 	}
 	return (k);
 }
 
-int	ft_addstr(char **strs, char *str, int i, int k)
+char	*join(char *chaine, int size, char **strs, char *sep)
 {
+	int	i;
 	int	j;
+	int	k;
+	int	taille;
 
-	j = 0;
-	while (strs[i][j])
+	i = -1;
+	k = 0;
+	taille = ft_strlen(size, strs, sep);
+	while (++i < size)
 	{
-		str[k] = strs[i][j];
-		k++;
-		j++;
+		j = 0;
+		while (strs[i][j])
+		{
+			chaine[k] = strs[i][j];
+			k++;
+			j++;
+		}
+		k = ft_separe(chaine, sep, k, taille);
 	}
-	return (k);
+	chaine[k] = '\0';
+	return (chaine);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int		i;
-	int		k;
-	char	*str;
+	char	*chaine;
 
-	i = 0;
-	k = 0;
-	str = 0;
-	str = malloc(sizeof(char) * size + 1);
-	if (str == 0)
-		return (str);
-	if (size == 0)
-	{
-		str[0] = '\0';
-		return (str);
-	}
-	while (i < size)
-	{
-		k = ft_addstr(strs, str, i, k);
-		i++;
-		if (i < size)
-			k = ft_sep(sep, str, k);
-	}
-	str[k] = '\0';
-	return (str);
+	chaine = NULL;
+	chaine = malloc(sizeof(char) * ft_strlen(size, strs, sep) + 1);
+	*chaine = 0;
+	if (chaine == NULL)
+		return (chaine);
+	if (size <= 0)
+		return (chaine);
+	chaine = join(chaine, size, strs, sep);
+	return (chaine);
 }

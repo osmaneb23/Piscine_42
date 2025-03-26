@@ -6,18 +6,17 @@
 /*   By: obouayed <obouayed@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 14:29:05 by obouayed          #+#    #+#             */
-/*   Updated: 2023/08/23 20:49:38 by obouayed         ###   ########.fr       */
+/*   Updated: 2025/03/26 19:05:41 by obouayed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdlib.h>
 
 int	*ft_range(int min, int max)
 {
-	int		*str;
-	int		*null;
-	int		i;
+	int	*str;
+	int	*null;
+	int	i;
 
 	i = 0;
 	str = malloc(sizeof(int) * (max - min));
@@ -35,22 +34,18 @@ int	*ft_range(int min, int max)
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
 	if (min >= max)
 	{
 		*range = NULL;
 		return (0);
 	}
-	range[i] = ft_range(min, max);
+	*range = malloc(sizeof(int) * (max - min));
 	if (*range == NULL)
 		return (-1);
-	while (range[i][j])
-		j++;
-	return (j);
+	*range = ft_range(min, max);
+	if (*range == NULL)
+		return (-1);
+	return (max - min);
 }
 
 // #include <stdio.h>
