@@ -23,9 +23,9 @@ Welcome to my **42 Piscine** repository! This repo contains all the projects and
 
 ### 🚀 Rush Projects
 - **Rush 00** _(Failed with **10%** ❌)_  
-  - We actually had a working solution, but we **forgot to put our files in the correct folder (`ex00`)**, which resulted in an automatic failure.
+  - We actually had a working program, but we **forgot to put our files in the correct folder (`ex00`)**, which resulted in an automatic failure.
 - **Rush 01** _(Failed with **0%** ❌)_  
-  - Our solution was functional, but we made a small oversight that prevented the program from being compiled. Additionally, there were **unprotected `malloc` calls** and some **imperfections in the parsing**.
+  - Our solution was functional, but we made a small oversight that prevented the compilation. Additionally, there were **unprotected `malloc` calls** and some **imperfections in the parsing**.
 
 ### 📚 Exams
 - **Exam 00** _(Passed with **50%** ✅)_
