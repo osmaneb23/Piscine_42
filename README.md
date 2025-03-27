@@ -34,7 +34,3 @@ Welcome to my **42 Piscine** repository! This repo contains all the projects and
 - **Final Exam** _(Passed with **72%** ✅)_
 
 > *The Piscine was an intense experience, but I learned a lot along the way!*
-
----
-
-🎯 *Feel free to explore, learn, and give feedback!*
